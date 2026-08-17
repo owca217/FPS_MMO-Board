@@ -31,7 +31,7 @@
   <section class="summary" aria-label="Podsumowanie projektu">
     <div class="stat"><span id="totalCount">0</span><small>wszystkie</small></div>
     <div class="stat"><span id="doingCount">0</span><small>w trakcie</small></div>
-    <div class="stat"><span id="testingCount">0</span><small>testy</small></div>
+    <div class="stat"><span id="testingCount">0</span><small>do sprawdzenia / testy</small></div>
     <div class="stat"><span id="doneCount">0</span><small>gotowe</small></div>
   </section>
 
@@ -43,6 +43,7 @@
     <button class="filter" data-filter="Bugs">Bugi</button>
     <button class="filter" data-filter="Server">Serwer</button>
     <button class="filter" data-filter="UI">UI</button>
+    <button class="filter" data-filter="3D">3D</button>
   </nav>
 
   <main id="board" class="board" aria-label="Tablica Kanban"></main>
@@ -54,10 +55,10 @@
         <button type="button" id="closeDialogBtn" class="icon-btn" aria-label="Zamknij">×</button>
       </div>
       <input type="hidden" id="taskId" />
-      <label>Tytuł<input id="titleInput" required maxlength="80" placeholder="Np. HP + damage" /></label>
-      <label>Opis<textarea id="descriptionInput" rows="4" maxlength="400" placeholder="Co dokładnie trzeba zrobić?"></textarea></label>
+      <label>Tytuł<input id="titleInput" required maxlength="80" placeholder="Np. skrzynka z amunicją 3D" /></label>
+      <label>Opis<textarea id="descriptionInput" rows="4" maxlength="400" placeholder="Co dokładnie trzeba zrobić? Dla modeli 3D wpisz tu wymagania do generacji."></textarea></label>
       <div class="form-grid">
-        <label>Kategoria<select id="categoryInput"><option>Gameplay</option><option>Multiplayer</option><option>Maps</option><option>Bugs</option><option>Server</option><option>UI</option></select></label>
+        <label>Kategoria<select id="categoryInput"><option>Gameplay</option><option>Multiplayer</option><option>Maps</option><option>Bugs</option><option>Server</option><option>UI</option><option>3D</option></select></label>
         <label>Priorytet<select id="priorityInput"><option value="low">Niski</option><option value="medium" selected>Średni</option><option value="high">Wysoki</option><option value="critical">Krytyczny</option></select></label>
       </div>
       <label>Status<select id="statusInput"></select></label>
