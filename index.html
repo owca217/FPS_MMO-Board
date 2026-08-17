@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0f172a" />
+  <title>FPS_MMO Project Board</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">FPS_MMO</p>
+      <h1>Project Board</h1>
+    </div>
+    <button id="addTaskBtn" class="primary">+ Zadanie</button>
+  </header>
+
+  <section class="syncbar" aria-label="Synchronizacja GitHub">
+    <div>
+      <strong>GitHub Issues Sync</strong>
+      <small id="syncStatus">Tryb lokalny</small>
+    </div>
+    <div class="sync-actions">
+      <input id="tokenInput" type="password" autocomplete="off" placeholder="GitHub token" />
+      <button id="connectBtn" class="ghost">Połącz</button>
+      <button id="syncBtn" class="ghost">Synchronizuj</button>
+    </div>
+  </section>
+
+  <section class="summary" aria-label="Podsumowanie projektu">
+    <div class="stat"><span id="totalCount">0</span><small>wszystkie</small></div>
+    <div class="stat"><span id="doingCount">0</span><small>w trakcie</small></div>
+    <div class="stat"><span id="testingCount">0</span><small>testy</small></div>
+    <div class="stat"><span id="doneCount">0</span><small>gotowe</small></div>
+  </section>
+
+  <nav class="filters" aria-label="Filtry">
+    <button class="filter active" data-filter="all">Wszystko</button>
+    <button class="filter" data-filter="Gameplay">Gameplay</button>
+    <button class="filter" data-filter="Multiplayer">Multiplayer</button>
+    <button class="filter" data-filter="Maps">Mapy</button>
+    <button class="filter" data-filter="Bugs">Bugi</button>
+    <button class="filter" data-filter="Server">Serwer</button>
+    <button class="filter" data-filter="UI">UI</button>
+  </nav>
+
+  <main id="board" class="board" aria-label="Tablica Kanban"></main>
+
+  <dialog id="taskDialog">
+    <form id="taskForm" method="dialog">
+      <div class="dialog-head">
+        <h2 id="dialogTitle">Nowe zadanie</h2>
+        <button type="button" id="closeDialogBtn" class="icon-btn" aria-label="Zamknij">×</button>
+      </div>
+      <input type="hidden" id="taskId" />
+      <label>Tytuł<input id="titleInput" required maxlength="80" placeholder="Np. HP + damage" /></label>
+      <label>Opis<textarea id="descriptionInput" rows="4" maxlength="400" placeholder="Co dokładnie trzeba zrobić?"></textarea></label>
+      <div class="form-grid">
+        <label>Kategoria<select id="categoryInput"><option>Gameplay</option><option>Multiplayer</option><option>Maps</option><option>Bugs</option><option>Server</option><option>UI</option></select></label>
+        <label>Priorytet<select id="priorityInput"><option value="low">Niski</option><option value="medium" selected>Średni</option><option value="high">Wysoki</option><option value="critical">Krytyczny</option></select></label>
+      </div>
+      <label>Status<select id="statusInput"></select></label>
+      <div class="dialog-actions">
+        <button type="button" id="deleteTaskBtn" class="danger ghost hidden">Usuń</button><span></span><button type="button" id="cancelBtn" class="ghost">Anuluj</button><button type="submit" class="primary">Zapisz</button>
+      </div>
+    </form>
+  </dialog>
+  <script src="app.js"></script>
+</body>
+</html>
